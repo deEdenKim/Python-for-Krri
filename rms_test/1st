@@ -1,0 +1,30 @@
+
+import pandas as pd
+
+file_name = 'C:/Users/codus/Desktop/test/100msec.xlsx'
+
+excel = pd.read_excel(file_name,sheet_name='TEST_DATA')
+print(excel) #엑셀 전체 출력
+
+#엑셀 범위 추출
+excel.columns
+readData = excel.iloc[:,range(1,41)]
+replaceData = excel.iloc[:,range(42,82)]
+
+print(readData)
+print(replaceData)
+
+#Dist
+for i in excel:
+	for j in range(0,41):
+		if excel[i][excel.columns[j]] == " -200":
+			excel[i+40][(excel.columns[j])+40] = 1000;
+
+#def reading(df, col):
+#for i in df.index:
+#val = df.loc[i,col]
+#if val == -2000 :
+
+
+
+
